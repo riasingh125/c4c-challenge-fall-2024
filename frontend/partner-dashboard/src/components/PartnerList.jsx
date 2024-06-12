@@ -4,17 +4,11 @@ import axios from 'axios';
 import PartnerTile from './PartnerTile';
 import Grid from '@mui/material/Grid';
 
-const PartnerList = ({partners, fetchPartners}) => {
+const PartnerList = ({partners, deletePartner}) => {
 
-
-  const deletePartner = async (id) => {
-    try {
-      await axios.delete(`http://localhost:4000/partners/${id}`);
-      fetchPartners();
-    } catch (error) {
-      console.error('Error deleting partner:', error);
-    }
-  };
+  if(!Array.isArray(partners)) {
+    return <p>No partners available</p>;
+  }
 
   return (
     <div>

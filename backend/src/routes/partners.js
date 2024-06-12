@@ -19,11 +19,22 @@ async function getPartner(req, res, next) {
 
 // GET route for getting all partners
 router.get('/', async (req, res) => {
+    const searchQuery = req.query.search || '';
     try {
-        const partners = await Partner.find();
+        let partners;
+        if (searchQuery) {
+            partners = await Partner.find({
+                $or: [
+                    {name: new RegExp(searchQuery, 'i')},
+                    {description: new RegExp(searchQuery, 'i')}
+                ]
+            });
+        }else {
+            partners = await Partner.find();
+        }
         res.json(partners);
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        res.status(500).json({ message: "POOPIE DOOKIE" });
     }
 });
 
@@ -44,7 +55,6 @@ router.post('/', async (req, res) => {
     }
 });
 
-// DELETE route for deleting an existing partner
 // DELETE route for deleting an existing partner
 router.delete('/:id', async (req, res) => {
     try {

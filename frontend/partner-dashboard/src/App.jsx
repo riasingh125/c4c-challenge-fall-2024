@@ -4,22 +4,38 @@ import PartnersList from './components/PartnerList'
 import AddPartner from './components/AddPartner'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import SearchBar from './components/SearchBar';
 
 function App() {
   const [partners, setPartners] = useState([]);
+  const [filteredPartners, setFilteredPartners] = useState([]);
 
   const fetchPartners = async () => {
     try {
       const response = await axios.get('http://localhost:4000/partners');
-      setPartners(response.data);
+      const partnerData = Array.isArray(response.data) ? response.data : [];
+      setPartners(partnerData);
+      setFilteredPartners(partnerData); // Initialize with all partners
     } catch (error) {
       console.error('Error fetching partners:', error);
+      setPartners([]);
+      setFilteredPartners([]);
+    }
+  };
+
+  const deletePartner = async (id) => {
+    try {
+      await axios.delete(`http://localhost:4000/partners/${id}`);
+      fetchPartners(); // Refresh the list after deletion
+    } catch (error) {
+      console.error('Error deleting partner:', error);
     }
   };
 
   useEffect(() => {
     fetchPartners();
   }, []);
+
 
   return (
     <>
@@ -32,7 +48,8 @@ function App() {
         <h1 className='title'>
           Partner Organizations
           </h1>
-        <PartnersList partners={partners} fetchPartners={fetchPartners} />
+        <SearchBar partners={partners} setFilteredPartners={setFilteredPartners}/>
+        <PartnersList partners={filteredPartners} deletePartner={deletePartner}/>
       </div>
     </div>
     </>
