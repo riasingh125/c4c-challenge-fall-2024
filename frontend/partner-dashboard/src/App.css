@@ -1,0 +1,153 @@
+/* 
+  ================
+  COMPONENT STYLES
+  ================
+*/
+
+/* MainDisplay */
+
+#main-content {
+  width: 90%;
+  max-width: 1000px;
+  padding: 21px 30px;
+  margin: auto;
+
+}
+
+#main-partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-content: center; 
+  align-items: stretch;
+  grid-gap: 25px;
+}
+
+h1.title {
+  text-align: center;
+  font-size: 2em;
+  padding-bottom: 25px;
+  margin-left: 30px;
+}
+
+/* PartnerTile */
+
+.partner-tile {
+  width: auto;
+  max-width: 40%;
+  height: auto;
+  max-height: 70%;
+  display: flex;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-direction: column;
+  align-items: flex-start;
+  /*border: 1px solid #3d3d3d; */
+  border-radius: 12px;
+  padding: 25px;
+  margin-left: 50px;
+  margin-top: 50px;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+}
+
+.partner-thumbnail {
+  align-items: center;
+  width: 90%;
+  max-width: 250px;
+  height: 90%;
+  max-height: 200px; 
+  padding: 5px;
+}
+
+.partner-info {
+  font-size: 0.9em;
+}
+
+.minimize-button{
+  position: fixed;
+  background-color: lightcoral;
+  color: white;
+  border: 1px solid darkred;
+  border-radius: 5px;
+  cursor: pointer;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+.minimize-button:hover {
+  background-color: darkred;
+}
+
+.add-partner-button{
+  background-color: lightskyblue;
+  color: white;
+  border: 1px solid darkblue;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-partner-button:hover {
+  background-color: darkblue;
+}
+
+.input-field {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  width: 30%;
+  align-items: center;
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  border: 1px solid #3d3d3d;
+  border-radius: 12px;
+  padding: 25px;
+  margin-left: 50px;
+  margin-top: 50px;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+}
+
+.delete-button{
+  background-color: lightgreen;
+  color: black;
+  border: 1px solid green;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: green;
+}
+
+@media (max-width: 768px) {
+  #main-content {
+    width: 80%;
+    padding: 20px;
+  }
+
+  h1.title{
+    font-size: 2.5em;
+    margin: 0;
+    white-space: normal;
+  }
+
+  #main-partners-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .partner-tile {
+    width: 100%;
+    max-width: 45%;
+    flex-grow: 1;
+  }
+}
