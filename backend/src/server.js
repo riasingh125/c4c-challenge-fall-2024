@@ -1,7 +1,21 @@
 import express from 'express';
+import mongoose from 'mongoose';
+//import bodyParser from 'body-parser';
+
+import routeParters from './routes/partners.js';
 
 const app = express();
 const port = 4000;
+
+const mongoURI = 'mongodb://localhost:27017/partnersDB';
+
+mongoose.connect(mongoURI, { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true
+    })
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.log(err));
+
 
 // Some partner data
 const partners = {
@@ -32,6 +46,8 @@ app.use((req, res, next) => {
 /*
   APPLICATION ROUTES
 */
+
+app.use('/partners', routeParters);
 
 app.get('/', (req, res) => {
   res.status(200).send(partners);
