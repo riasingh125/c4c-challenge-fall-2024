@@ -6,10 +6,15 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBar from './components/SearchBar';
 
+/*
+  Main component for the partner dashboard
+*/
+
 function App() {
   const [partners, setPartners] = useState([]);
   const [filteredPartners, setFilteredPartners] = useState([]);
 
+  // Fetch partners from the server
   const fetchPartners = async () => {
     try {
       const response = await axios.get('http://localhost:4000/partners');
@@ -22,7 +27,7 @@ function App() {
       setFilteredPartners([]);
     }
   };
-
+// Delete a partner
   const deletePartner = async (id) => {
     try {
       await axios.delete(`http://localhost:4000/partners/${id}`);
@@ -32,6 +37,7 @@ function App() {
     }
   };
 
+  
   useEffect(() => {
     fetchPartners();
   }, []);

@@ -14,6 +14,7 @@
 
 }
 
+/* Style for the main grid displaying partners */
 #main-partners-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -22,6 +23,7 @@
   grid-gap: 25px;
 }
 
+/* Style for the TITLE*/
 h1.title {
   text-align: center;
   font-size: 2em;
@@ -50,6 +52,7 @@ h1.title {
   margin-bottom: 25px;
 }
 
+/*Style for the thumnail images */
 .partner-thumbnail {
   align-items: center;
   width: 90%;
@@ -59,10 +62,12 @@ h1.title {
   padding: 5px;
 }
 
+/* Style for the partner info */
 .partner-info {
   font-size: 0.9em;
 }
 
+/* Style for the minimize button for the add partner form */
 .minimize-button{
   position: fixed;
   background-color: lightcoral;
@@ -80,6 +85,7 @@ h1.title {
   background-color: darkred;
 }
 
+/* Style for the add partner button */
 .add-partner-button{
   background-color: lightskyblue;
   color: white;
@@ -92,6 +98,7 @@ h1.title {
   background-color: darkblue;
 }
 
+/* Style for the add partner inputs */
 .input-field {
   width: 100%;
   padding: 8px 12px;
@@ -102,6 +109,7 @@ h1.title {
   margin-bottom: 16px;
 }
 
+/* style for the inputs + the form */
 .form-group {
   width: 30%;
   align-items: center;
@@ -117,6 +125,7 @@ h1.title {
   margin-bottom: 25px;
 }
 
+/* Style for the delete partner button */
 .delete-button{
   background-color: lightgreen;
   color: black;
@@ -129,6 +138,7 @@ h1.title {
   background-color: green;
 }
 
+/* Style for the search bar */
 .search-bar{
   display: flex;
   justify-content: center;
@@ -145,27 +155,4 @@ h1.title {
 .sarch-bar:focus {
   border: 1px solid #4CAF50;
   outline: none;
-}
-
-@media (max-width: 768px) {
-  #main-content {
-    width: 80%;
-    padding: 20px;
-  }
-
-  h1.title{
-    font-size: 2.5em;
-    margin: 0;
-    white-space: normal;
-  }
-
-  #main-partners-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-
-  .partner-tile {
-    width: 100%;
-    max-width: 45%;
-    flex-grow: 1;
-  }
 }

@@ -5,6 +5,10 @@ import React from 'react';
   along with any tools to manage said information
 */
 
+/*
+{Object} partnerData: Information on the partner to be displayed
+{Function} deletePartner: Function to call when the delete button is clicked
+*/
 
 function PartnerTile({ partnerData, deletePartner }) {
 

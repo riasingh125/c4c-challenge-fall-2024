@@ -2,6 +2,11 @@ import express from 'express';
 import mongoose from 'mongoose';
 //import bodyParser from 'body-parser';
 
+/*
+File sets up and starts the Express server
+configures middleware , connects to MongoDB, and sets up routes
+
+*/
 import routeParters from './routes/partners.js';
 
 const app = express();
