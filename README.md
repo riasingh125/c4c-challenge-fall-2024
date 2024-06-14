@@ -7,7 +7,7 @@ For more detailed information about each of the parts of this starter code, chec
 3. in the terminal, type npm run dev and hit enter.
 - navigate to both the backend and frontend folders (cd) and npm install for all dependencies 
 4. http://localhost:3000 -> frontend
-5. http://localhost:4000 -> backend
+5. http://localhost:4000/partners -> backend
 
 
 ## High level overview
