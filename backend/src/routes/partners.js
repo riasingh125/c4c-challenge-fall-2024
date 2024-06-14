@@ -2,6 +2,12 @@ import express from 'express';
 const router = express.Router();
 import Partner from '../models/partner.js';
 
+
+/*
+Defines routes for managing the partners 
+Includes endpoints for getting all partners, creating a new partner, and deleting a partner
+*/
+
 // Middleware to get partner by ID
 async function getPartner(req, res, next) {
     let partner;

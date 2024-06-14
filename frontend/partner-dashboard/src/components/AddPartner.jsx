@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { set } from 'mongoose';
 
+
+/*
+handles creating a form to add a new partner
+*/
 const AddPartner = ({ fetchPartners }) => {
   const [partner, setPartner] = useState({
     name: '',
@@ -12,6 +16,8 @@ const AddPartner = ({ fetchPartners }) => {
 
   const [isVisible, setVisible] = useState(false);
 
+  //handles change to the input fields and updates the partner state
+  //triggerd by changing an input field
   const handleChange = (event) => {
     const { name, value, checked, type } = event.target;
     setPartner(prev => ({
@@ -20,6 +26,8 @@ const AddPartner = ({ fetchPartners }) => {
     }));
   };
 
+  //handles the submit of the form
+  //triggered by clicking the submit button
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -32,6 +40,8 @@ const AddPartner = ({ fetchPartners }) => {
     }
   };
 
+  //toggles the visibility of the form
+  //triggered by clicking the minimize button
   const toggleVisibility = () => {
     setVisible(!isVisible);
   };

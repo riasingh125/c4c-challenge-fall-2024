@@ -4,6 +4,10 @@ import axios from 'axios';
 import PartnerTile from './PartnerTile';
 import Grid from '@mui/material/Grid';
 
+
+/*
+  Component to display a list of partners
+*/
 const PartnerList = ({partners, deletePartner}) => {
 
   if(!Array.isArray(partners)) {
